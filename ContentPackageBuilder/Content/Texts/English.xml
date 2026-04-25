@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- Settings -->
+  <NoLightNoName.SamplePixelAtCursor.DisplayName>Sample Pixel At Cursor</NoLightNoName.SamplePixelAtCursor.DisplayName>
+  <NoLightNoName.SamplePixelAtCursor.Tooltip></NoLightNoName.SamplePixelAtCursor.Tooltip>
+  <NoLightNoName.SamplePixelAtCursor.DisplayCategory>Debug</NoLightNoName.SamplePixelAtCursor.DisplayCategory>
+</infotexts>

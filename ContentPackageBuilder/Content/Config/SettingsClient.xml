@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Client-only settings -->
+<Configuration>
+    <Settings>
+        <Setting Name="SamplePixelAtCursor" Type="bool" Value="false" />
+    </Settings>
+</Configuration>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Simplified Chinese" nowhitespace="true" translatedname="中文（简体）">
+  <!-- Settings -->
+  <NoLightNoName.SamplePixelAtCursor.DisplayName>指针处采样像素</NoLightNoName.SamplePixelAtCursor.DisplayName>
+  <NoLightNoName.SamplePixelAtCursor.Tooltip></NoLightNoName.SamplePixelAtCursor.Tooltip>
+  <NoLightNoName.SamplePixelAtCursor.DisplayCategory>Debug</NoLightNoName.SamplePixelAtCursor.DisplayCategory>
+</infotexts>
