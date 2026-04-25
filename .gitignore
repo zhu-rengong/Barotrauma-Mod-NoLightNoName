@@ -404,3 +404,4 @@ FodyWeavers.xsd
 
 # User
 /UserBuildData.props
+*.zip
