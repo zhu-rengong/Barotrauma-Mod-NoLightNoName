@@ -13,6 +13,6 @@ public partial class Plugin
 
     private partial void LoadConfigProjSpecific()
     {
-        TryGetConfig("HasInitializedConfiguration", out _samplePixelAtCursorSetting);
+        TryGetConfig("SamplePixelAtCursor", out _samplePixelAtCursorSetting);
     }
 }
