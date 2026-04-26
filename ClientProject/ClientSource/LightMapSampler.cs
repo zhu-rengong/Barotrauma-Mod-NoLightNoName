@@ -55,7 +55,7 @@ public class LightMapSampler
             return;
         }
 
-        if (Timing.TotalTime - _snapshotTimer < 0.2) { return; }
+        if (Timing.TotalTime - _snapshotTimer < 0.5) { return; }
 
         try
         {
