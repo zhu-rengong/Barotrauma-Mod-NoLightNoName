@@ -10,20 +10,13 @@ $osMap = @{
 
 $platforms = [BuildOS]::All
 $targets = [BuildTarget]::Client
-$config = [BuildConfiguration]::Release
+$config = [BuildConfiguration]::Debug
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $repoRoot = Split-Path -Parent $scriptDir
 $srcDir = Join-Path $scriptDir "Content"
 $binaryDir = Join-Path $srcDir "bin"
 $userPropsPath = Join-Path $repoRoot "UserBuildData.props"
-
-git @(
-    "archive"
-    "-o"
-    (Join-Path $srcDir "source.zip")
-    "master"
-)
 
 $projects = @(
     @{ Path = "ClientProject\WindowsClient.csproj"; Runtime = "win-x64"; Target = [BuildTarget]::Client },

@@ -8,9 +8,10 @@ public partial class Plugin : IAssemblyPlugin
 #pragma warning disable CS8618
     public IConfigService ConfigService { get; set; }
     public IPluginManagementService PluginManagementService { get; set; }
-    public ILoggerService LoggerService { get; set; }
+    public ILoggerService _loggerService { get; set; }
     public IConsoleCommandsService ConsoleCommandsService { get; set; }
 #pragma warning restore CS8618
+    public static ILoggerService LoggerService { get; set; } = null!;
 
     public ContentPackage _package = null!;
 
@@ -21,10 +22,11 @@ public partial class Plugin : IAssemblyPlugin
     {
         // When your plugin is loading, use this instead of the constructor for code relying on
         // the services above.
+        LoggerService = _loggerService;
 
         if (!PluginManagementService.TryGetPackageForPlugin<Plugin>(out _package))
         {
-            LoggerService.LogError("Failed to find package!");
+            _loggerService.LogError("Failed to find package!");
             return;
         }
 
