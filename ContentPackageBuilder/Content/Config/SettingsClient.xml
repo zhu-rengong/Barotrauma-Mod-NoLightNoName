@@ -3,5 +3,6 @@
 <Configuration>
     <Settings>
         <Setting Name="SamplePixelAtCursor" Type="bool" Value="false" />
+        <Setting Name="SampleResolution" Type="rangeFloat" Min="0.01" Max="1.0" Steps="100" Value="0.25" />
     </Settings>
 </Configuration>

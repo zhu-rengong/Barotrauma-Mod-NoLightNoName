@@ -4,4 +4,7 @@
   <NoLightNoName.SamplePixelAtCursor.DisplayName>Sample Pixel At Cursor</NoLightNoName.SamplePixelAtCursor.DisplayName>
   <NoLightNoName.SamplePixelAtCursor.Tooltip></NoLightNoName.SamplePixelAtCursor.Tooltip>
   <NoLightNoName.SamplePixelAtCursor.DisplayCategory>Debug</NoLightNoName.SamplePixelAtCursor.DisplayCategory>
+  <NoLightNoName.SampleResolution.DisplayName>Sample Resolution</NoLightNoName.SampleResolution.DisplayName>
+  <NoLightNoName.SampleResolution.Tooltip></NoLightNoName.SampleResolution.Tooltip>
+  <NoLightNoName.SampleResolution.DisplayCategory>Debug</NoLightNoName.SampleResolution.DisplayCategory>
 </infotexts>

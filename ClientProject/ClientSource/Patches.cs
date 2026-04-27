@@ -6,24 +6,6 @@ namespace NoLightNoName;
 [HarmonyPatch]
 class Patches
 {
-    static bool _isNameHidden;
-
-    [HarmonyPatch(typeof(Character), nameof(Character.DrawFront)), HarmonyPrefix]
-    static void Character_DrawFront_Prefix(Character __instance)
-    {
-        if (Character.Controlled is Character { IsHuman: true } controlled
-            && __instance != Character.Controlled
-            && __instance.Info is not null
-            && __instance.hudInfoVisible
-            && controlled.FocusedCharacter != __instance
-            && __instance.AnimController?.GetLimb(LimbType.Head) is Limb head)
-        {
-            Color sampledResult = LightMapSampler.GetColor(head.body.DrawPosition, 4);
-            float luminance = sampledResult.GetRelativeLuminance();
-            _isNameHidden = luminance < 0.0221244f;
-        }
-    }
-
     [HarmonyPatch(typeof(Character), nameof(Character.DrawFront)), HarmonyTranspiler]
     static IEnumerable<CodeInstruction> Character_DrawFront_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
     {
@@ -80,9 +62,11 @@ class Patches
                 .SearchForward(i => i.Calls(DrawStringHijacked))
                 .ThrowIfInvalid($"Failed to find the 1st target method call for hijacking. (draw drop shadow)")
                 .Set(OpCodes.Call, AccessTools.Method(typeof(Patches), nameof(DrawStringHijacker)))
+                .Insert(new CodeInstruction(OpCodes.Ldarg_0))
                 .SearchForward(i => i.Calls(DrawStringHijacked))
                 .ThrowIfInvalid($"Failed to find the 2nd target method call for hijacking. (draw colored name)")
                 .Set(OpCodes.Call, AccessTools.Method(typeof(Patches), nameof(DrawStringHijacker)))
+                .Insert(new CodeInstruction(OpCodes.Ldarg_0))
                 .InstructionEnumeration();
         }
         catch (InvalidOperationException ex)
@@ -93,18 +77,13 @@ class Patches
         return instructions;
     }
 
-    static void DrawStringHijacker(GUIFont font, SpriteBatch sb, LocalizedString text, Vector2 position, Color color, float rotation, Vector2 origin, float scale, SpriteEffects spriteEffects, float layerDepth, Alignment alignment)
+    static void DrawStringHijacker(GUIFont font, SpriteBatch sb, LocalizedString text, Vector2 position, Color color, float rotation, Vector2 origin, float scale, SpriteEffects spriteEffects, float layerDepth, Alignment alignment,
+        Character character)
     {
-        if (!_isNameHidden)
+        if (LightMapSampler.IsNameShown.TryGetValue(character, out _))
         {
             font.DrawString(sb, text, position, color, rotation, origin, scale, spriteEffects, layerDepth, alignment);
         }
-    }
-
-    [HarmonyPatch(typeof(Character), nameof(Character.DrawFront)), HarmonyPostfix]
-    static void Character_DrawFront_Postfix()
-    {
-        _isNameHidden = false;
     }
 
     [HarmonyPatch(typeof(GUI), nameof(GUI.Draw)), HarmonyPostfix]

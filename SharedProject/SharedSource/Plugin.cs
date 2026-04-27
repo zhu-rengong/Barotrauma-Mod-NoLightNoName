@@ -56,6 +56,9 @@ public partial class Plugin : IAssemblyPlugin
 
         harmony?.UnpatchSelf();
         harmony = null;
+
+        LightMapSampler.SampledTarget?.Dispose();
+        LightMapSampler.IsNameShown.Clear();
     }
 
 }

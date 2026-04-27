@@ -4,4 +4,7 @@
   <NoLightNoName.SamplePixelAtCursor.DisplayName>指针处采样像素</NoLightNoName.SamplePixelAtCursor.DisplayName>
   <NoLightNoName.SamplePixelAtCursor.Tooltip></NoLightNoName.SamplePixelAtCursor.Tooltip>
   <NoLightNoName.SamplePixelAtCursor.DisplayCategory>Debug</NoLightNoName.SamplePixelAtCursor.DisplayCategory>
+  <NoLightNoName.SampleResolution.DisplayName>采样分辨率</NoLightNoName.SampleResolution.DisplayName>
+  <NoLightNoName.SampleResolution.Tooltip></NoLightNoName.SampleResolution.Tooltip>
+  <NoLightNoName.SampleResolution.DisplayCategory>Debug</NoLightNoName.SampleResolution.DisplayCategory>
 </infotexts>

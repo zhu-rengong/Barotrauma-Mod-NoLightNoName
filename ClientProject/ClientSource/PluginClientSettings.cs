@@ -11,8 +11,16 @@ public partial class Plugin
         set => _samplePixelAtCursorSetting.TrySetValue(value);
     }
 
+    private static ISettingBase<float> _sampleResolutionSetting = null!;
+    public static float SampleResolution
+    {
+        get => _sampleResolutionSetting.Value;
+        set => _sampleResolutionSetting.TrySetValue(value);
+    }
+
     private partial void LoadConfigProjSpecific()
     {
         TryGetConfig("SamplePixelAtCursor", out _samplePixelAtCursorSetting);
+        TryGetConfig("SampleResolution", out _sampleResolutionSetting);
     }
 }
