@@ -13,7 +13,7 @@ class Patches
     {
         if (Character.Controlled is Character { IsHuman: true } controlled
             && __instance != Character.Controlled
-            && __instance.IsHuman
+            && __instance.Info is not null
             && __instance.hudInfoVisible
             && controlled.FocusedCharacter != __instance
             && __instance.AnimController?.GetLimb(LimbType.Head) is Limb head)
